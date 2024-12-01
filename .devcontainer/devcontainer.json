@@ -1,0 +1,33 @@
+{
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "maattdd.gitless",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ziglang.vscode-zig"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "bash",
+                        "icon": "terminal-bash"
+                    }
+                }
+            }
+        }
+    },
+    "remoteUser": "${localEnv:USER}",
+    "updateRemoteUserUID": true,
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "REMOTE_USER": "${localEnv:USER}"
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.gitconfig,target=/home/${localEnv:USER}/.gitconfig,type=bind,consistency=cached"
+    ],
+    "forwardPorts": []
+}
