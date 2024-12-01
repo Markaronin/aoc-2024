@@ -19,5 +19,6 @@ USER ${REMOTE_USER}
 RUN <<EOF
     mkdir $HOME/.zig
     curl https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz | tar --extract --xz --file - --directory $HOME/.zig --strip-components 1
+    curl https://builds.zigtools.org/zls-linux-x86_64-0.13.0.tar.xz | tar --extract --xz --file - --directory $HOME/.zig
 EOF
 ENV PATH $HOME/.zig:$PATH
